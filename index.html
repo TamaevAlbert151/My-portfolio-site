@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Портфолио — Albert Tamaev</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-frame">
+    <header class="top-bar">
+      <div class="logo">ALBERT</div>
+      <nav class="nav">
+        <a href="#about">О себе</a>
+        <a href="#skills">Навыки</a>
+        <a href="#portfolio">Портфолио</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero-text">
+        <h1 class="hero-name">
+          <span>ALBERT</span><br />
+          <span>TAMAEV</span>
+        </h1>
+        <p class="hero-role">Java‑developer / Backend / Java</p>
+      </div>
+      <div class="hero-photo">
+        <img src="фото.jpg" alt="Albert Tamaev" />
+        <span class="hero-curve"></span>
+      </div>
+    </section>
+
+    <!-- О СЕБЕ -->
+    <section class="section" id="about">
+      <div class="section-header">
+        <h2>О себе</h2>
+        <span class="section-line"></span>
+      </div>
+      <div class="section-grid">
+        <p>
+           Я студент 2 курса (после 11 класса), занимаюсь Java-разработкой и созданием дизайнов сайтов и веб-приложений.
+           Совмещаю backend-логику и визуальную часть: от идеи и интерфейса до реализации и работы приложения.
+        </p>
+        <p>
+          К работе подхожу последовательно: сначала разбираюсь в задаче и требованиях, затем продумываю структуру и логику решения.
+          В проектах стараюсь писать понятный код и делать аккуратный, удобный интерфейс.
+          Если чего-то не знаю — разбираюсь сам, читаю документацию и довожу задачу до результата.
+        </p>
+      </div>
+    </section>
+
+    <!-- НАВЫКИ -->
+    <section class="section" id="skills">
+      <div class="section-header">
+        <h2>Навыки и технологии</h2>
+        <span class="section-line"></span>
+      </div>
+      <div class="skills-grid">
+        <article class="skill-card">
+          <h3>Frontend</h3>
+          <p>HTML, CSS, JS</p>
+        </article>
+        <article class="skill-card">
+          <h3>Backend</h3>
+          <p>Java, Kotlin, Python, Redis</p>
+        </article>
+        <article class="skill-card">
+          <h3>DevOps</h3>
+          <p>Docker, CI/CD, Linux</p>
+        </article>
+        <article class="skill-card">
+          <h3>Other</h3>
+          <p>Git, Tilda, Figma</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ПОРТФОЛИО -->
+    <section class="section" id="portfolio">
+      <div class="section-header">
+        <h2>Портфолио</h2>
+        <span class="section-line"></span>
+      </div>
+      <div class="projects">
+        <!-- ОТ сюда -->
+        <article class="project-card">
+          <div class="project-thumb">
+            <div class="project-curve"></div>
+          </div>
+          <div class="project-body">
+            <h3>Проект 1</h3>
+            <p></p>
+            <p class="project-tech">Стек: HTML, CSS, JS</p>
+            <a href="#" class="btn-link">Смотреть</a>
+          </div>
+        </article>
+        <!-- До сюда -->
+      </div>
+    </section>
+
+    <!-- КОНТАКТЫ -->
+    <section class="section" id="contacts">
+      <div class="section-header">
+        <h2>Контакты</h2>
+        <span class="section-line"></span>
+      </div>
+      <div class="contacts-grid">
+        <form class="contact-form">
+          <input type="text" name="name" placeholder="Ваше имя" required />
+          <input type="email" name="email" placeholder="Email" required />
+          <textarea name="message" rows="4" placeholder="Сообщение"></textarea>
+          <button type="submit" class="btn-primary">Отправить</button>
+        </form>
+        <div class="contact-info">
+          <a href="https://t.me/alberttamaev">Telegram: @alberttamaev</a>
+          <a href="mailto: mail@example.com">Email: tamaevalbert151@gmail.com</a>
+          <p>Город: Ростов-на-Дону, Россия</p>
+          <div class="socials">
+            <a href="#">GitHub</a>
+            <a href="https://t.me/@alberttamaev"></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>© 2025 Albert Tamaev</span>
+      <span>tamaevalbert151@gmail.com · +7 (928) 771‑58‑53</span>
+    </footer>
+  </div>
+</body>
+</html>

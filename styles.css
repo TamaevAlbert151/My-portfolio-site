@@ -1,0 +1,436 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-main: #101114;
+  --bg-frame: #050608;
+  --bg-card: rgba(15, 16, 20, 0.9);
+  --accent: #f5f5f5;
+  --accent-soft: rgba(255, 255, 255, 0.1);
+  --text-main: #f7f7f7;
+  --text-muted: #a2a2a7;
+  --border-soft: rgba(255, 255, 255, 0.08);
+  --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.8);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: radial-gradient(circle at top left, #22232a 0, #050608 55%);
+  color: var(--text-main);
+}
+
+/* Центральная рамка */
+.page-frame {
+  max-width: 1180px;
+  margin: 32px auto;
+  padding: 24px 32px 32px;
+  background: linear-gradient(135deg, #08080b 0%, #111218 55%, #050608 100%);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Лёгкая диагональная «дымка» */
+.page-frame::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(
+    circle at 120% 0,
+    rgba(255, 255, 255, 0.06),
+    transparent 60%
+  );
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Верхняя полоса */
+.top-bar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 18px;
+  background: #2a2c30;
+  margin-bottom: 28px;
+}
+
+.logo {
+  font-family: "Impact", "Anton", "Oswald", system-ui;
+  letter-spacing: 0.18em;
+  font-size: 1rem;
+}
+
+.nav a {
+  color: var(--text-main);
+  text-decoration: none;
+  margin-left: 18px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  position: relative;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 1px;
+  width: 0;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+/* HERO */
+
+.hero {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+  padding: 34px 26px 40px;
+  background: radial-gradient(circle at top left, #14151a 0, #050608 60%);
+  border: 1px solid var(--border-soft);
+}
+
+.hero-name {
+  font-family: "Impact", "Anton", "Oswald", system-ui;
+  font-size: clamp(3.2rem, 4.2vw, 4.6rem);
+  line-height: 0.88;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 6px 0 rgba(0, 0, 0, 0.85);
+}
+
+.hero-role {
+  margin-top: 16px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hero-photo {
+  justify-self: end;
+  position: relative;
+  width: min(340px, 42vw);
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid var(--border-soft);
+}
+
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.1);
+  transform: scale(1.02);
+}
+
+/* белая дуга поверх фото */
+.hero-curve {
+  position: absolute;
+  top: -35%;
+  right: 8%;
+  width: 160%;
+  height: 200%;
+  border-radius: 50%;
+  border-right: 3px solid rgba(255, 255, 255, 0.95);
+  pointer-events: none;
+}
+
+/* Общие секции */
+
+.section {
+  position: relative;
+  z-index: 1;
+  margin-top: 40px;
+  padding: 28px 26px 30px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.section-header h2 {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.section-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.5),
+    transparent 80%
+  );
+  margin-left: 14px;
+}
+
+.section-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* Навыки */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.skill-card {
+  padding: 16px 14px;
+  background: linear-gradient(135deg, #171820, #0b0c10);
+  border: 1px solid var(--border-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-card h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 8px;
+}
+
+.skill-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* маленькая диагональная линия */
+.skill-card::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  top: -40px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border-right: 2px solid rgba(255, 255, 255, 0.4);
+  opacity: 0.5;
+}
+
+/* Портфолио */
+
+.projects {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.project-card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr);
+  gap: 22px;
+  padding: 16px 14px;
+  background: #0d0e13;
+  border: 1px solid var(--border-soft);
+}
+
+.project-thumb {
+  position: relative;
+  background: radial-gradient(circle at top, #22232a, #050608 70%);
+  border: 1px solid var(--border-soft);
+  min-height: 140px;
+  overflow: hidden;
+}
+
+/* белая дуга в миниатюре */
+.project-curve {
+  position: absolute;
+  top: -40%;
+  right: -5%;
+  width: 130%;
+  height: 200%;
+  border-radius: 50%;
+  border-right: 2px solid rgba(255, 255, 255, 0.85);
+}
+
+.project-body h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 6px;
+}
+
+.project-body p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.project-tech {
+  margin-top: 6px;
+  font-size: 0.85rem;
+}
+
+.btn-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text-main);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+}
+
+.section a {color: #A6A6A6;}
+
+/* Контакты */
+
+.contacts-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 26px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border-soft);
+  padding: 8px 2px;
+  color: var(--text-main);
+  font-size: 0.9rem;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.btn-primary {
+  margin-top: 6px;
+  align-self: flex-start;
+  padding: 8px 22px;
+  border: none;
+  background: var(--accent);
+  color: #000;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  cursor: pointer;
+}
+
+.contact-info {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.socials {
+  margin-top: 10px;
+  display: flex;
+  gap: 12px;
+}
+
+.socials a {
+  font-size: 0.85rem;
+  color: var(--text-main);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+/* Подвал */
+
+.footer {
+  position: relative;
+  z-index: 1;
+  margin-top: 32px;
+  padding: 10px 18px;
+  background: #111216;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Адаптив */
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .hero-photo {
+    justify-self: flex-start;
+  }
+
+  .section-grid,
+  .contacts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-frame {
+    margin: 12px;
+    padding: 16px 16px 22px;
+  }
+
+  .top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .nav a {
+    margin-left: 0;
+    margin-right: 14px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
